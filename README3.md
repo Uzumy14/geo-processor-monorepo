@@ -3,9 +3,6 @@
 
 A monorepo application for geographic point processing built with FastAPI (Python), NestJS (TypeScript), and Next.js (React). This project demonstrates a microservices architecture with Redis caching and Docker containerization.
 
-## 🎯 Assessment Requirements Fulfilled
-This project implements all requirements from the candidate assessment:
-
 ## ✅ Python Service (FastAPI)
 
 ## Contenido
@@ -242,14 +239,6 @@ NEXT_PUBLIC_API_URL=http://localhost:3001
 ## 🚨 Error Handling
 The application provides clear error messages for:
 
-- Invalid input data (400 Bad Request)
-- Empty points array (400 Bad Request)
-- Service unavailability (503 Service Unavailable)
-- Validation errors (422 Unprocessable Entity)
-
-## 🚨 Error Handling
-
-- The application provides clear error messages for:
 - Invalid input data (400 Bad Request)
 - Empty points array (400 Bad Request)
 - Service unavailability (503 Service Unavailable)
