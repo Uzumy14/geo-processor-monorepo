@@ -92,8 +92,8 @@ bash
 cd next-frontend
 npm install
 NEXT_PUBLIC_API_URL=http://localhost:3001 npm run dev
-📁 Project Structure
-text
+
+#📁 Project Structure
 geo-processor-monorepo/
 ├── python-service/          # FastAPI geographic service
 │   ├── app/
