@@ -1,0 +1,44 @@
+geo-processor-monorepo/
+├─ python-service/
+│  ├─ node_modules/
+│  ├─ app/
+│  │  ├─ main.py
+│  │  ├─ schemas.py
+│  │  ├─ service.py
+│  │  └─ __init__.py
+│  ├─ tests/
+│  │  └─ test_app.py
+│  │  └─ test_geo.py
+│  ├─ Dockerfile
+│  ├─ requirements.txt
+│  └─ pytest.ini
+├─ nestjs-api/
+│  ├─ src/
+│  │  ├─ main.ts
+│  │  ├─ app.module.ts
+│  │  ├─ app.controller.ts
+│  │  ├─ dto/process-points.dto.ts
+│  │  ├─ geo.service.ts
+│  │  └─ cache.service.ts
+│  ├─ test/
+│  │  └─ app.controller.spec.ts
+│  │  └─ app.spec.ts
+│  ├─ package-lock.json
+│  ├─ package.json
+│  ├─ jest.config.js
+│  ├─ tsconfig.json
+│  └─ Dockerfile
+├─ next-frontend/
+│  ├─ app/
+│  │  ├─ layout.jsx
+│  │  └─ page.jsx
+│  ├─ components/
+│  │  └─ MapView.tsx
+│  ├─ .env.local
+│  ├─ config.js
+│  ├─ next.config.js
+│  ├─ package.json
+│  └─ Dockerfile
+├─ .gitignore
+├─ docker-compose.yml
+└─ README.md

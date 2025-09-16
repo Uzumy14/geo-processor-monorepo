@@ -1,0 +1,50 @@
+
+version: "3.8"
+services:
+  python-service:
+    build: ./python-service
+    container_name: python-service
+    ports:
+      - "8000:8000"
+    networks:
+      - geo-net
+    depends_on:
+      - redis
+
+  nestjs-api:
+    build: ./nestjs-api
+    container_name: nestjs-api
+    environment:
+      - PYTHON_URL=http://python-service:8000/process-points
+      - REDIS_URL=redis://redis:6379
+    ports:
+      - "3001:3001"
+    networks:
+      - geo-net
+    depends_on:
+      - python-service
+      - redis
+
+  next-frontend:
+    build: ./next-frontend
+    container_name: next-frontend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:3001/api
+    ports:
+      - "3000:3000"
+    networks:
+      - geo-net
+    depends_on:
+      - nestjs-api
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - geo-net
+
+networks:
+  geo-net:
+    driver: bridge

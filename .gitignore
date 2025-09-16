@@ -1,0 +1,29 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+.venv
+venv/
+dist/
+build/
+*.egg-info/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+.DS_Store
+
+# Next.js
+.next/
+out/
+
+# Docker
+docker-compose.override.yml
+.env.local
+
+# Misc
+*.log
