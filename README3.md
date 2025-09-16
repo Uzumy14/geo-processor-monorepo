@@ -5,7 +5,7 @@ A monorepo application for geographic point processing built with FastAPI (Pytho
 
 ## ✅ Python Service (FastAPI)
 
-## Contenido
+### Contenido
 - **Endpoint**: `POST /process-points` for processing latitude/longitude points
 - **Input Validation**: Returns 400 Bad Request for invalid/missing data
 - **Geographic Calculations:**
@@ -27,7 +27,7 @@ A monorepo application for geographic point processing built with FastAPI (Pytho
 - **Error Handling**: Comprehensive error handling and logging
 
 
-### ✅ Next.js Frontend
+## ✅ Next.js Frontend
 
 - **User Interface**: Form for coordinate submission
 - **Visualization**: Map display showing bounding box and centroid
@@ -65,7 +65,7 @@ Services will be available at:
 
 ## 📡 API Endpoints
 
-## Python Service (Direct)
+### Python Service (Direct)
 ```bash
 curl -X POST http://localhost:8000/process-points \
   -H "Content-Type: application/json" \
@@ -90,7 +90,7 @@ curl -X POST http://localhost:3001/api/process-points \
 
 ## 🧪 Running Tests
 
-## Docker Approach
+### Docker Approach
 ```bash
 # Test Python service
 docker compose run --rm python-service pytest -v
@@ -99,7 +99,7 @@ docker compose run --rm python-service pytest -v
 docker compose run --rm nestjs-api npm run test
 ```
 
-## Local Development Approach
+### Local Development Approach
 ```bash
 # Python service tests
 cd python-service
@@ -112,7 +112,7 @@ npm test
 
 ## 🔧 Local Development (Without Docker)
 
-## 1. Python Service
+### 1. Python Service
 ```bash
 cd python-service
 python3 -m venv .venv
@@ -121,14 +121,14 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8000
 ```
 
-## 2. NestJS API
+### 2. NestJS API
 ```bash
 cd nestjs-api
 npm install
 npm run start:dev
 ```
 
-## 3. Next.js Frontend
+### 3. Next.js Frontend
 ```bash
 cd next-frontend
 npm install
@@ -192,7 +192,7 @@ geo-processor-monorepo/
 - **Error Responses**: Clear 400 Bad Request messages for invalid inputs
 - **Well-documented**: Comprehensive function signatures and error handling
 
-## Example Error Responses
+### Example Error Responses
 ```json
 {
   "message": "Validation failed",
@@ -201,7 +201,7 @@ geo-processor-monorepo/
 }
 ```
 
-## Success Response Format
+### Success Response Format
 ```json
 {
   "centroid": {
@@ -219,19 +219,19 @@ geo-processor-monorepo/
 
 ## 🔄 Environment Variables
 
-## Python Service
+### Python Service
 ```env
 PYTHON_URL=http://localhost:8000
 ```
 
-## NestJS API
+### NestJS API
 ```env
 REDIS_URL=redis://redis:6379
 PYTHON_SERVICE_URL=http://python-service:8000
 PORT=3001
 ```
 
-## Next.js Frontend
+### Next.js Frontend
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:3001
 ```
@@ -265,14 +265,14 @@ docker compose down -v
 
 ## 📝 Decision Rationale
 
-## Monorepo Approach Selected Because:
+### Monorepo Approach Selected Because:
 
 - Simplified dependency management: Shared configuration across services
 - Easier cross-service development: Single repository for all components
 - Unified testing: Consistent testing approach across all services
 - CI/CD pipeline: Streamlined deployment process
 
-## Technology Choices Justification:
+### Technology Choices Justification:
 
 - FastAPI: High-performance with automatic docs and validation
 - NestJS: Enterprise-grade framework with built-in TypeScript support
@@ -280,7 +280,7 @@ docker compose down -v
 - Redis: High-performance caching solution
 - Docker: Consistent environment across development and production
 
-## 🔮 Future Enhancements
+### 🔮 Future Enhancements
 
 - Authentication and authorization
 - Rate limiting
