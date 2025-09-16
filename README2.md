@@ -13,12 +13,12 @@ Redis: Cache and message broker
 📋 Requirements
 Docker and Docker Compose (recommended)
 
-OR Node.js 18+ and Python 3.11+ (for local development)
+Node.js 18+ and Python 3.11+ (for local development)
 
 🚀 Quick Start with Docker (Recommended)
 bash
 # Clone the repository
-git clone https://github.com/your-username/geo-processor-monorepo.git
+git clone https://github.com/uzumy14/geo-processor-monorepo.git
 cd geo-processor-monorepo
 
 # Start all services
@@ -92,8 +92,8 @@ bash
 cd next-frontend
 npm install
 NEXT_PUBLIC_API_URL=http://localhost:3001 npm run dev
-📁 Project Structure
-text
+
+#📁 Project Structure
 geo-processor-monorepo/
 ├── python-service/          # FastAPI geographic service
 │   ├── app/
