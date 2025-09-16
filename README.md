@@ -104,8 +104,9 @@ docker compose down
 ### 1) Python service (FastAPI)
 ```bash
 cd python-service
-python3 -m venv .venv
-source .venv/bin/activate         # Windows: .venv\\Scripts\\activate
+python -m venv .venv
+source .venv/bin/activate         
+# Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8000
 ```
@@ -157,7 +158,12 @@ npm run dev
 
 ## Tests unitarios
 
-### Python (pytest)
+### Python (pytest) con Docker
+```bash
+docker compose run --rm python-service pytest -v
+```
+
+### Python (pytest) localmente
 ```bash
 cd python-service
 source .venv/bin/activate
@@ -165,7 +171,12 @@ pip install -r requirements.txt
 pytest -q
 ```
 
-### NestJS (jest)
+### NestJS (jest) con Docker
+```bash
+docker compose run --rm nestjs-api npm test
+```
+
+### NestJS (jest) localmente
 ```bash
 cd nestjs-api
 npm install
@@ -174,38 +185,9 @@ npm test
 
 ---
 
-## Comandos para crear el repositorio en GitHub y subir el código
-
-### Opción A — usando GitHub CLI (`gh`) (rápido)
-```bash
-# desde la raíz del proyecto
-git init
-git add .
-git commit -m "Initial commit: geo processor monorepo"
-# crea repo público (cambia nombre y visibilidad según quieras)
-gh repo create your-github-username/geo-processor-monorepo --public --source=. --remote=origin --push
-```
-
-### Opción B — sin `gh` (crear repo en github.com y subir)
-1. Ve a https://github.com/new y crea un nuevo repo (por ejemplo `geo-processor-monorepo`).
-2. En tu máquina local:
-```bash
-git init
-git add .
-git commit -m "Initial commit: geo processor monorepo"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/geo-processor-monorepo.git
-git push -u origin main
-```
-
-> Reemplaza `YOUR_USERNAME` por tu usuario de GitHub.
-
----
-
 ## Notas y recomendaciones
 - Para pruebas rápidas y repetir ejecuciones, Docker Compose es la forma más sencilla y reproduce exactamente el entorno.
 - El `nestjs-api` incluye un mecanismo de cache que intenta usar Redis y si no está disponible cae a una cache en memoria (útil para desarrollo local sin Redis).
-- Si quieres que yo genere el `repo` en GitHub directamente, necesitaré autorización (no puedo crear repos externos desde aquí).
 
 ---
 
@@ -216,9 +198,3 @@ git push -u origin main
 - `next-frontend/app/page.jsx` : UI simple con Leaflet para visualizar puntos, centroid y bounding box.
 
 ---
-
-Si quieres, ahora puedo:
-1. Generar un archivo `.zip` con todo el proyecto para descargar (ya lo creé en la carpeta `./` del paquete y lo puedes descargar desde el enlace que te compartiré).
-2. También puedo mostrarte los comandos exactos para ejecutar los tests y levantar el stack (los incluí arriba).
-
-Dime si quieres que haga algo más (por ejemplo, agregar CI con GitHub Actions o ajustar la configuración para Windows).
