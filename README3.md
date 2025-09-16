@@ -185,7 +185,7 @@ geo-processor-monorepo/
 
 ## 🎯 Implementation Details
 
-## Python Service Features
+### Python Service Features
 - **FastAPI + Pydantic**: Automatic validation and serialization
 - **Mathematical Operations**: Uses Python's built-in min(), max(), and sum()
 - **Stateless Design**: No internal caching (handled by NestJS layer)
