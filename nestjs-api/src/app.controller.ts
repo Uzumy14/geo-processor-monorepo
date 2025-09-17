@@ -13,7 +13,7 @@ export class AppController {
     new ValidationPipe({
       whitelist: true,
       forbidNonWhitelisted: false,
-      transform: true, // ✅ Convierte strings en números automáticamente
+      transform: true,
     }),
   )
   async processPoints(@Body() body: ProcessPointsDto) {
