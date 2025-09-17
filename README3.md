@@ -90,9 +90,23 @@ curl -X POST http://localhost:3001/api/process-points \
 
 ## 🧪 Running Tests
 
-## API Endpoint Tests (tests/test_app.py)
+### Python Service Tests
+### API Endpoint Tests (tests/test_app.py)
 
 ![alt text](image.png)
+
+### Geographic Logic Tests (tests/test_geo.py)
+
+![alt text](image-1.png)
+
+### NestJS API Tests
+### Unit Tests (test/app.controller.spec.ts)
+
+![alt text](image-2.png)
+
+### End-to-End Tests (test/app.spec.ts)
+
+![alt text](image-3.png)
 
 ### Docker Approach
 ```bash

@@ -45,7 +45,6 @@ describe('AppController', () => {
 
     // 🔹 Lo transformamos a DTO, como lo haría NestJS con ValidationPipe
     const dto = plainToInstance(ProcessPointsDto, rawBody);
-
     // 🔹 Validamos con class-validator (simula el ValidationPipe)
     const errors = validateSync(dto);
     expect(errors.length).toBe(0); // debe pasar validación
