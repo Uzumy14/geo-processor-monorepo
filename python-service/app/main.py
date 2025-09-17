@@ -10,10 +10,10 @@ app = FastAPI(title="Geo Processor - Python Service", version="0.1.0")
 @app.post("/process-points")
 async def process_points(request: Request):
     try:
-        # Leer el JSON directamente para validación manual
+        # Read the JSON directly for manual validation
         payload = await request.json()
         
-        # Validación manual del campo points
+        # Manual validation of the points field
         if 'points' not in payload:
             return JSONResponse(
                 status_code=400,
@@ -44,13 +44,13 @@ async def process_points(request: Request):
                 }
             )
         
-        # Ahora validar con Pydantic para estructura de puntos
+        # Now validate with Pydantic for point structure
         points_payload = PointsPayload(**payload)
         result = compute_bounds_and_centroid(points_payload.points)
         return JSONResponse(content=result)
         
     except ValidationError as ve:
-        # Extraer el primer mensaje de error
+        # Extract the first error message
         error_msg = str(ve.errors()[0]['msg']) if ve.errors() else "Validation failed"
         return JSONResponse(
             status_code=400,

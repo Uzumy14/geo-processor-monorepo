@@ -35,7 +35,7 @@ describe('AppController', () => {
   });
 
   it('should process points and return centroid + bounds', async () => {
-    // 🔹 Simulamos el body plano recibido en la request
+    // 🔹 We simulate the flat body received in the request
     const rawBody = {
       points: [
         { lat: 40.7128, lng: -74.006 },
@@ -43,20 +43,21 @@ describe('AppController', () => {
       ],
     };
 
-    // 🔹 Lo transformamos a DTO, como lo haría NestJS con ValidationPipe
+    // 🔹 We transform it into a DTO, as NestJS would do with ValidationPipe
     const dto = plainToInstance(ProcessPointsDto, rawBody);
-    // 🔹 Validamos con class-validator (simula el ValidationPipe)
+    
+// 🔹 We validate with class-validator (simulates the ValidationPipe)
     const errors = validateSync(dto);
-    expect(errors.length).toBe(0); // debe pasar validación
+    expect(errors.length).toBe(0);
 
-    // 🔹 Llamamos al controlador
+    // 🔹 We call the controller
     const result = await appController.processPoints(dto);
 
-    // 🔹 Verificamos el resultado esperado
+    // 🔹 We verify the expected result
     expect(result.centroid).toHaveProperty('lat');
     expect(result.bounds).toHaveProperty('north');
 
-    // 🔹 Verificamos que geoService.process recibió SOLO el array de puntos
+    // 🔹 We verify that geoService.process received ONLY the points array
     expect(geoService.process).toHaveBeenCalledWith(dto);
 
   });
