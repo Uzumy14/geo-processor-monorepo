@@ -90,6 +90,10 @@ curl -X POST http://localhost:3001/api/process-points \
 
 ## 🧪 Running Tests
 
+## API Endpoint Tests (tests/test_app.py)
+
+![alt text](image.png)
+
 ### Docker Approach
 ```bash
 # Test Python service
