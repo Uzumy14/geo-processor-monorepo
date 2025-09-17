@@ -1,9 +1,8 @@
-
 from typing import List, Dict
 from .schemas import Point
 
 def compute_bounds_and_centroid(points: List[Point]) -> Dict:
-    if not points:
+    if not points: #or len(points) == 0
         raise ValueError("points list is empty")
 
     lats = [p.lat for p in points]
