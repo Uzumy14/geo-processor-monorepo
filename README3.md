@@ -5,7 +5,6 @@ A monorepo application for geographic point processing built with FastAPI (Pytho
 
 ## ✅ Python Service (FastAPI)
 
-### Contenido
 - **Endpoint**: `POST /process-points` for processing latitude/longitude points
 - **Input Validation**: Returns 400 Bad Request for invalid/missing data
 - **Geographic Calculations:**
